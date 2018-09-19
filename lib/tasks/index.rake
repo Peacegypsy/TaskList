@@ -1,0 +1,2 @@
+namespace :index do
+end

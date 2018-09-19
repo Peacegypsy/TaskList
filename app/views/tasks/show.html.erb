@@ -1,0 +1,11 @@
+<% if @task.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+  <h1><%=@task.name %></h1>
+  <p><%= @task.description %> </p>
+  <a href=<%="tasks/#{@task.id}/edit"%>>
+    Edit
+  </a>
+  <div></div>
+  <%= link_to "Delete #{@task.title}", task_path(@task.id), method: :delete %>
+<% end %>
