@@ -1,11 +1,1 @@
-<%= form_with model: @task, class: "task-form" do |f|%>
-  <p>Enter the following information to save your task to your TaskList:</p>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.submit "Save Task", class: "task-button" %>
-<%end%>
+<%= render partial: 'form', locals: {action_name: 'Add a task', button_title: 'Add task'} %>

@@ -1,6 +1,6 @@
 <h1>Task List</h1>
 <header>
-  
+
 </header>
 <h1>These are your tasks!</h1>
 <% @tasks.each do |task| %>
@@ -8,4 +8,5 @@
   </h2>
 </a>
   <p> to <%= task.description %></p>
+    <%= link_to "Delete", task_path(task.id), method: :delete %>
 <% end %>

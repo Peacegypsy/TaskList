@@ -1,13 +1,13 @@
 TASKS = [
-  { name: "Do laundry", description: "Wash and dry clothing"},
-  { name: "Grocery shop", description: "Get food to eat"},
-  { name: "Homework", description: "CS Fun!"}
+  {id: 1, name: "Wash dishes", description: "Use soap and hot water"},
+  {id: 2, name: "Do laundry", description: "Wash and dry clothes"},
+  {id: 2, name: "Grocery shop", description: "Go to store and buy healthy food"}
 ]
 
 
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all.order(:name)
+    @tasks = Task.all
   end
 
   def show
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(id: params[:task][:id], name: params[:description][:edit])
+    @task = Task.new(task_params)
     if @task.save
       redirect_to root_path
     else
@@ -33,6 +33,26 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id].to_i )
+    @task = Task.find_by(params[:id].to_i)
+    render :new
   end
+
+  def update
+    task = Task.find_by(id: params[:id].to_i)
+    task.update(task_params)
+
+    redirect_to book_path(book.id)
+  end
+
+  def destroy
+    task = Task.find_by(id: params[:id].to_i)
+    task.destroy
+
+    redirect_to root_path
+  end
+  private
+def task_params
+  return params.require(:task).permit(:name, :description)
+end
+
 end
