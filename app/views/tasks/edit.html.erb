@@ -1,4 +1,1 @@
-<h1> Edit a task.</h1>
-<h1>
-  <%= edit_task_path(@task.id) %>
-</h1>
+<%= render partial: 'form', locals: {action_name: 'Edit a task', button_title: 'Edit'} %>

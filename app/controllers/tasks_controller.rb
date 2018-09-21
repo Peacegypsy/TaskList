@@ -33,15 +33,15 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find_by(params[:id].to_i)
-    render :new
+  @task = Task.find_by(id: params[:id].to_i)
+  render :new
   end
 
   def update
     task = Task.find_by(id: params[:id].to_i)
     task.update(task_params)
 
-    redirect_to book_path(book.id)
+    redirect_to task_path(task.id)
   end
 
   def destroy
