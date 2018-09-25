@@ -19,6 +19,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def complete
+    @task = Task.find_by(id: params[:id].to_i)
+    if @task.completed = true
+      render :complete_task, status: :complete_task
+      @complete_task = task.complete
+      @task.save
+      redirect_to complete_task_path
+    end
+  end
+
   def create
     @task = Task.new(task_params)
     if @task.save
@@ -46,8 +56,7 @@ class TasksController < ApplicationController
 
   def destroy
     task = Task.find_by(id: params[:id].to_i)
-    task.destroy
-
+    @deleted_task = task.destroy
     redirect_to root_path
   end
   private

@@ -9,9 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <p class="list-container" alt="list-container">
       <header>
     <nav>
+          <p class="list-container" alt="list-container">
       <ul>
         <li>
           <%= link_to  "Home", "/", id: "home-link" %>
@@ -24,7 +24,6 @@
            Add a task
          </a>
       </ul>
-    </p>
     </nav>
   </header>
     <%= yield %>

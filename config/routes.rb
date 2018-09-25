@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  match '/tasks/complete/:id' => 'tasks#complete_task', as: 'complete_task', via: :put
+
   root 'tasks#index'
   resources :tasks
+end
   #
   # get '/tasks/', to: 'tasks#index', as: 'tasks'
   #
@@ -16,4 +19,3 @@ Rails.application.routes.draw do
   # put '/tasks/:id', to: 'tasks#update'
   #
   # delete '/tasks/:id', to: 'tasks#destroy'
-end
